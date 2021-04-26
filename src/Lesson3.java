@@ -10,7 +10,7 @@ public class Lesson3 {
         System.out.println(rectangleOverCircle(8, 9, 4) + "\n");
 
         //8
-        int rub = 1013;
+        int rub = 1017;
         System.out.println(rub + rubles(rub) + "\n");
 
         //9
@@ -65,10 +65,10 @@ public class Lesson3 {
     //8
     static String rubles(int rub) {
         String str;
-        if ((4 < rub && rub < 21) || (4 < (rub - (rub - rub % 100)) && (rub - (rub - rub % 100)) < 21)) {
+        if ((4 < rub && rub < 21) || (4 < rub % 100 && rub % 100 < 21)) {
             str = " рублей";
         } else {
-            switch (rub - (rub - rub % 10)) {
+            switch (rub % 10) {
                 case 1:
                     str = " рубль";
                     break;
