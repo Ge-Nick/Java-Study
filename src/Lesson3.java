@@ -2,61 +2,56 @@ import java.math.BigInteger;
 
 public class Lesson3 {
     public static void main(String[] args) {
-        int digit = 4;
-        System.out.println(isSeven(digit));
+        //6
+        int digit = -7;
+        System.out.println(isSeven(digit) + "\n");
 
-        System.out.println(isSevenCase(digit) + "\n");
-
+        //7
         System.out.println(rectangleOverCircle(8, 9, 4) + "\n");
 
+        //8
         int rub = 1013;
         System.out.println(rub + rubles(rub) + "\n");
 
-        int number = 25;
-        System.out.print(number + "! = ");
-        System.out.printf("%.0f", factorialFloat(number));
-        System.out.println("");
-        System.out.println(number + "!" + " = " + factorial(number));
-        System.out.println(number + "!" + " = " + mathCalc(number) + "\n");
-
-        long numTask14 = 7_893_823_445l;
-        System.out.println("Сумма цифр в числе " + numTask14 + " = " + numSum(numTask14) + "\n");
-        divide7();
-
+        //9
         int d = 31;
         int m = 12;
         int y = 2020;
         System.out.println(nextDate(d, m, y));
 
-        int land1 = 45;
-        int land2 = 89;
-        int a1 = 45;
-        int a2 = 75;
-        int b1 = 41;
-        int b2 = 15;
+        //12
+        int number = 25;
+        System.out.print(number + "! = ");
+        System.out.printf("%.0f", factorialFloat(number));
+        System.out.println("");
+        System.out.println(number + "!" + " = " + factorial(number));
+
+        //13
+        System.out.println(number + "!" + " = " + mathCalc(number) + "\n");
+
+        //14
+        long numTask14 = 7_893_823_445l;
+        System.out.println("Сумма цифр в числе " + numTask14 + " = " + numSum(numTask14) + "\n");
+        divide7();
+
+        //10
+        int land1 = 10;
+        int land2 = 20;
+        int a1 = 10;
+        int a2 = 9;
+        int b1 = 12;
+        int b2 = 6;
         if (placeHouses(land1, land2, a1, a2, b1, b2) == true)
         {
             System.out.println("Ваши дома поместятся на заданном участке");
         }
         else {
-            System.out.println("Нельзя впихнуть невпихуемое");
+            System.out.println("Нельзя впихнуть невпихуемое :)");
         }
     }
-
+    //6
     static boolean isSeven(int num) {
-        return (num == 7);
-    }
-
-    static boolean isSevenCase(int num) {
-        boolean isTrue;
-        switch (num) {
-            case 7:
-                isTrue = true;
-                break;
-            default:
-                isTrue = false;
-        }
-        return isTrue;
+        return (Math.abs(num % 10) == 7);
     }
 
     //7
@@ -67,7 +62,7 @@ public class Lesson3 {
         } else answer = "Прямоугольником с размерами " + a + " x " + b + " нельзя закрыть круг радиусом " + r;
         return answer;
     }
-
+    //8
     static String rubles(int rub) {
         String str;
         if ((4 < rub && rub < 21) || (4 < (rub - (rub - rub % 100)) && (rub - (rub - rub % 100)) < 21)) {
@@ -89,61 +84,15 @@ public class Lesson3 {
         return str;
     }
 
-    static double factorialFloat(int number) {
-        int i = 1;
-        double factorial = 1f;
-        while (i <= number) {
-            factorial *= i;
-            i++;
-        }
-        return factorial;
-    }
-
-    static BigInteger factorial(int number) {
-        int i = 1;
-        BigInteger factorial = BigInteger.ONE;
-        while (i <= number) {
-            factorial = factorial.multiply(BigInteger.valueOf(i));
-            i++;
-        }
-        return factorial;
-    }
-
-    static BigInteger mathCalc(int number) {
-        BigInteger f = BigInteger.ONE;
-        int i = 0;
-        do {
-            i++;
-            f = f.multiply(BigInteger.valueOf(i));
-        } while (i < number);
-        return f;
-    }
-
-    static int numSum(long num) {
-        int result = 0;
-        do {
-            result += num % 10;
-            num /= 10;
-        } while (num > 0);
-        return result;
-    }
-
-    static void divide7() {
-        for (int i = 1; i <= 100; i++) {
-            if (i % 7 == 0) {
-                System.out.println(i + " Hope! ");
-            }
-        }
-    }
-
+    //9
     static String nextDate(int d, int m, int y) {
         String newDay;
         String oldDate = "За " + d + "." + m + "." + y + " следует ";
         if ((d > 31) ||
-            (m > 12) ||
-            ((m == 4 || m == 6 || m == 9 || m == 11) && (d > 30)) ||
-            ((m == 2) && (d > 28) && (y % 4 != 0)) ||
-            ((m == 2) && (d > 29) && (y % 4 == 0)))
+                (m > 12) ||
+                ((m == 4 || m == 6 || m == 9 || m == 11) && (d > 30)) ||
+                ((m == 2) && (d > 28) && (y % 4 != 0)) ||
+                ((m == 2) && (d > 29) && (y % 4 == 0)))
         {
             newDay = "Ты только что подарил миру новый день и заслуживаешь Нобелевской премии! :)";
             return newDay;
@@ -170,16 +119,67 @@ public class Lesson3 {
         newDay = oldDate + d + "." +  m + "." +  y;
         return newDay;
     }
+    //12
+    static double factorialFloat(int number) {
+        int i = 1;
+        double factorial = 1f;
+        while (i <= number) {
+            factorial *= i;
+            i++;
+        }
+        return factorial;
+    }
 
+    static BigInteger factorial(int number) {
+        int i = 1;
+        BigInteger factorial = BigInteger.ONE;
+        while (i <= number) {
+            factorial = factorial.multiply(BigInteger.valueOf(i));
+            i++;
+        }
+        return factorial;
+    }
+
+    //13
+    static BigInteger mathCalc(int number) {
+        BigInteger f = BigInteger.ONE;
+        int i = 0;
+        do {
+            i++;
+            f = f.multiply(BigInteger.valueOf(i));
+        } while (i < number);
+        return f;
+    }
+
+    //14
+    static int numSum(long num) {
+        int result = 0;
+        do {
+            result += num % 10;
+            num /= 10;
+        } while (num > 0);
+        return result;
+    }
+
+    //16
+    static void divide7() {
+        for (int i = 1; i <= 100; i++) {
+            if (i % 7 == 0) {
+                System.out.println(i + " Hope! ");
+            }
+        }
+    }
+
+
+    //10
     static boolean placeHouses(int landDim1, int landDim2, int a1, int a2, int b1, int b2) {
-        return (((landDim1) >= (a1 + b1)) && ((landDim2 >= a2) && (landDim2 >= b2))) ||
-        (((landDim1) >= (a1 + b2)) && ((landDim2 >= a2) && (landDim2 >= b1))) ||
+        return  ((((landDim1) >= (a1 + b1)) && ((landDim2 >= a2) && (landDim2 >= b2))) ||
+                (((landDim1) >= (a1 + b2)) && ((landDim2 >= a2) && (landDim2 >= b1))) ||
                 (((landDim1) >= (a2 + b1)) && ((landDim2 >= a1) && (landDim2 >= b2))) ||
                 (((landDim1) >= (a2 + b2)) && ((landDim2 >= a1) && (landDim2 >= b1))) ||
-
                 (((landDim2) >= (a1 + b1)) && ((landDim1 >= a2) && (landDim1 >= b2))) ||
                 (((landDim2) >= (a1 + b2)) && ((landDim1 >= a2) && (landDim1 >= b1))) ||
                 (((landDim2) >= (a2 + b1)) && ((landDim1 >= a1) && (landDim1 >= b2))) ||
-                (((landDim2) >= (a2 + b2)) && ((landDim1 >= a1) && (landDim1 >= b1)));
+                (((landDim2) >= (a2 + b2)) && ((landDim1 >= a1) && (landDim1 >= b1))));
     }
 }
